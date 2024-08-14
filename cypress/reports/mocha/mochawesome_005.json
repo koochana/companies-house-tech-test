@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-14T11:56:50.623Z",
+    "end": "2024-08-14T11:56:56.338Z",
+    "duration": 5715,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "72ffb716-2e74-4a4a-bcc7-f940912d1ea8",
+      "title": "",
+      "fullFile": "cypress/e2e/tests/productsPage.cy.js",
+      "file": "cypress/e2e/tests/productsPage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ee3a67e0-643b-4447-bfbf-e3b0f50b50cf",
+          "title": "Scenarios related to Products page, Purchase page and Checkout page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Complete checkout of an item by purchasing and reviewing",
+              "fullTitle": "Scenarios related to Products page, Purchase page and Checkout page Complete checkout of an item by purchasing and reviewing",
+              "timedOut": null,
+              "duration": 2259,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_productsPageActionsCy.default.orderItem(productsList[4]);\ncy.get(product.productLocators.addToCart).click();\n_productsPageActionsCy.default.checkout();\n_productsPageActionsCy.default.completeCheckoutDetails();\ncy.contains(productsList[4]);\n_productsPageActionsCy.default.completeThePurchase();\ncy.get(product.productLocators.orderConfirmation).invoke('text').then(text => {\n  expect(text).to.contain(\"THANK YOU FOR YOUR ORDER\");\n});",
+              "err": {},
+              "uuid": "2272e47c-8d0d-4423-9e44-5b03fa54be03",
+              "parentUUID": "ee3a67e0-643b-4447-bfbf-e3b0f50b50cf",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add few products to the cart, remove a item from the cart and then purchase",
+              "fullTitle": "Scenarios related to Products page, Purchase page and Checkout page Add few products to the cart, remove a item from the cart and then purchase",
+              "timedOut": null,
+              "duration": 1970,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(productSelectors.productList).find(productSelectors.productItem).each(($el, index, list) => {\n  const productName = $el.find(productSelectors.productName).text();\n  if (productName.includes(productsList[4])) {\n    cy.wrap($el).find(productSelectors.addToCart).click();\n  }\n  if (productName.includes(productsList[1])) {\n    cy.wrap($el).find(productSelectors.addToCart).click();\n  }\n  if (productName.includes(productsList[5])) {\n    cy.wrap($el).find(productSelectors.addToCart).click();\n  }\n});\ncy.get(productSelectors.shoppingCart).click();\ncy.get(productSelectors.cartList).find(productSelectors.cartItem).each(($el, index, list) => {\n  const cartItemName = $el.find(productSelectors.cartItemName).text();\n  if (cartItemName.includes(productsList[4])) {\n    cy.wrap($el).find(productSelectors.removeItem).click();\n  }\n});\n_productsPageActionsCy.default.checkout();\n_productsPageActionsCy.default.completeCheckoutDetails();\ncy.contains(productsList[1]);\ncy.contains(productsList[5]);\n_productsPageActionsCy.default.completeThePurchase();\ncy.get(productSelectors.orderConfirmation).invoke('text').then(text => {\n  expect(text).to.contain(\"THANK YOU FOR YOUR ORDER\");\n});",
+              "err": {},
+              "uuid": "97da2186-01ef-4dbf-9763-95ab18762503",
+              "parentUUID": "ee3a67e0-643b-4447-bfbf-e3b0f50b50cf",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify all the products on the products page",
+              "fullTitle": "Scenarios related to Products page, Purchase page and Checkout page Verify all the products on the products page",
+              "timedOut": null,
+              "duration": 653,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(\"Products\");\ncy.get(productSelectors.productName).should('have.length', 6);\ncy.get(productSelectors.productName).each((element, index) => {\n  expect(productsList).includes(element.text());\n});",
+              "err": {},
+              "uuid": "d0fc3b6b-7318-47ab-b64a-37cfd98bd1b7",
+              "parentUUID": "ee3a67e0-643b-4447-bfbf-e3b0f50b50cf",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify prices,texts of all the items on the products page",
+              "fullTitle": "Scenarios related to Products page, Purchase page and Checkout page Verify prices,texts of all the items on the products page",
+              "timedOut": null,
+              "duration": 758,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(`${productsList[5]}carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.${productsPrice[3]}ADD TO CART`);\ncy.contains(`${productsList[1]}A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.${productsPrice[4]}ADD TO CART`);\ncy.contains(`${productsList[0]}Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.${productsPrice[0]}ADD TO CART`);\ncy.contains(`${productsList[3]}It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.${productsPrice[2]}ADD TO CART`);\ncy.contains(`${productsList[2]}Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.${productsPrice[1]}ADD TO CART`);\ncy.contains(`${productsList[4]}This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.${productsPrice[5]}ADD TO CART`);",
+              "err": {},
+              "uuid": "6b3ccc86-b1ae-432e-b597-6f01e4c845f8",
+              "parentUUID": "ee3a67e0-643b-4447-bfbf-e3b0f50b50cf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2272e47c-8d0d-4423-9e44-5b03fa54be03",
+            "97da2186-01ef-4dbf-9763-95ab18762503",
+            "d0fc3b6b-7318-47ab-b64a-37cfd98bd1b7",
+            "6b3ccc86-b1ae-432e-b597-6f01e4c845f8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5640,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

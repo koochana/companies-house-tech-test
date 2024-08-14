@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-14T11:36:48.471Z",
+    "end": "2024-08-14T11:36:58.275Z",
+    "duration": 9804,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "781be2f7-4ee0-45ae-aa65-8a49332792bd",
+      "title": "",
+      "fullFile": "cypress/e2e/tests/loginPage.cy.js",
+      "file": "cypress/e2e/tests/loginPage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "db1e819c-27a3-4f1a-9641-7f7ea3afd9ff",
+          "title": "Tests related to Login Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login with incorrect user credentials",
+              "fullTitle": "Tests related to Login Page Login with incorrect user credentials",
+              "timedOut": null,
+              "duration": 931,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"testData.json\").then(details => {\n  _loginPageActionsCy.default.loginWithUserCredentials(details.standard_user, details.incorrect_password);\n});\ncy.get(loginSelectors.loginError).should('have.text', \"Epic sadface: Username and password do not match any user in this service\");",
+              "err": {},
+              "uuid": "3359d8ec-04eb-45ec-b4c1-3e318b766199",
+              "parentUUID": "db1e819c-27a3-4f1a-9641-7f7ea3afd9ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Error message when login with locked_out_user",
+              "fullTitle": "Tests related to Login Page Error message when login with locked_out_user",
+              "timedOut": null,
+              "duration": 771,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"testData.json\").then(details => {\n  _loginPageActionsCy.default.loginWithUserCredentials(details.locked_out_user, details.password);\n});\ncy.get(loginSelectors.loginError).should('have.text', \"Epic sadface: Sorry, this user has been locked out.\");",
+              "err": {},
+              "uuid": "f41e53c3-c8fd-4a29-857f-704229ea5b9e",
+              "parentUUID": "db1e819c-27a3-4f1a-9641-7f7ea3afd9ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login as standard_user",
+              "fullTitle": "Tests related to Login Page Login as standard_user",
+              "timedOut": null,
+              "duration": 1275,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"testData.json\").then(details => {\n  _loginPageActionsCy.default.loginWithUserCredentials(details.standard_user, details.password);\n});\ncy.contains('Products').should('be.visible');\ncy.get(loginSelectors.menu).click();\ncy.contains('Logout');",
+              "err": {},
+              "uuid": "45520ba1-9fdc-4f05-810e-0b3286e66691",
+              "parentUUID": "db1e819c-27a3-4f1a-9641-7f7ea3afd9ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login as problem_user",
+              "fullTitle": "Tests related to Login Page Login as problem_user",
+              "timedOut": null,
+              "duration": 872,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"testData.json\").then(details => {\n  _loginPageActionsCy.default.loginWithUserCredentials(details.problem_user, details.password);\n});\ncy.get(loginSelectors.menu).click();\ncy.contains('Logout');",
+              "err": {},
+              "uuid": "6cfed2ae-987d-4882-a5af-79a37d4e9d4b",
+              "parentUUID": "db1e819c-27a3-4f1a-9641-7f7ea3afd9ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login as performance_glitch_user, by giving extra waiting time",
+              "fullTitle": "Tests related to Login Page Login as performance_glitch_user, by giving extra waiting time",
+              "timedOut": null,
+              "duration": 5861,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"testData.json\").then(details => {\n  _loginPageActionsCy.default.loginWithUserCredentials(details.performance_glitch_user, details.password);\n});\ncy.get(loginSelectors.menu, {\n  timeout: 60000\n}).should('be.visible').click();\ncy.contains('Logout');",
+              "err": {},
+              "uuid": "d99660bf-3431-421f-8a39-03853050e02d",
+              "parentUUID": "db1e819c-27a3-4f1a-9641-7f7ea3afd9ff",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3359d8ec-04eb-45ec-b4c1-3e318b766199",
+            "f41e53c3-c8fd-4a29-857f-704229ea5b9e",
+            "45520ba1-9fdc-4f05-810e-0b3286e66691",
+            "6cfed2ae-987d-4882-a5af-79a37d4e9d4b",
+            "d99660bf-3431-421f-8a39-03853050e02d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9710,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

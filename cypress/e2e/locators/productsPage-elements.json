@@ -1,0 +1,23 @@
+{
+  "productLocators": {
+    "submit": "input[type='submit']",
+    "finishButton": "a.btn_action.cart_button",
+    "cancelButton": "a.cart_cancel_link",
+    "continueShoppingButton": "a.btn_secondary",
+    "orderConfirmation": "#checkout_complete_container",
+    "productList": "div.inventory_list",
+    "productItem": "div.inventory_item",
+    "productName": "div.inventory_item_name",
+    "productPrice": "div.inventory_item_price",
+    "addToCart": "button.btn_primary.btn_inventory",
+    "shoppingCart": "div[id='shopping_cart_container']",
+    "checkout": "a.btn_action.checkout_button",
+    "firstName": "input[id='first-name']",
+    "lastName": "input[id='last-name']",
+    "postalCode": "input[id='postal-code']",
+    "cartList": "div.cart_list",
+    "cartItem": "div.cart_item",
+    "cartItemName": "div.cart_item_label",
+    "removeItem": "button.btn_secondary.cart_button"
+  }
+}
